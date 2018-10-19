@@ -5,6 +5,14 @@
 }
 body {
     background-color: #000000;
+    color: #ffffff;
+    font-family: 'Lato', sans-serif;
+}
+
+header {
+    text-align: center;
+    text-transform: uppercase;
+    padding: 20px 0 10px 0;
 }
 
 .container {
@@ -12,9 +20,10 @@ body {
     height: 100vh;
     display: grid;
     grid-gap: 20px 20px;
-    grid-template-columns: 100px 100px 100px 100px 100px 100px;
-    grid-template-rows: 100px 100px 100px 100px;
-    align-content: middle;
+    grid-template-columns: 125px 125px 125px 125px 125px 125px;
+    grid-template-rows: 125px 125px 125px 125px;
+    align-content: center;
+    justify-content: center;
     
 }
 
