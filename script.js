@@ -90,11 +90,13 @@ function hidePair(nr1, nr2) {
 
     if(pairsLeft == 0){
         $('.container').css('display', 'block');
-
-        $('.container').html('<h1 class="win-info">You did it in </br> ' + turnCounter + '</br> turns</h1>');
+        $('.container').html('<h1 class="win-info">You did it in </br> ' + turnCounter + '</br> turns</h1></br><button class="play-again">Play again</button>');
+        $('.play-again').css('display', 'block');
+        $('.play-again').on('click', function() {
+            document.location.reload();
+        });
 
         $('.counter').css('display', 'none');
-
     }
 
 }
