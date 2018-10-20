@@ -30,5 +30,21 @@ let oneVisible = false;
 let turnCounter = 0;
 
 function revealCard(nr){
-    alert(nr);
+    // alert(nr);
+
+    //color for background-color atribute
+    let color = items[nr];
+
+    $('#i' + nr).css('background-color', color);
+    $('#i' + nr).addClass('game-item-active');
+
+    if(oneVisible == false) 
+    {
+        //first card
+        oneVisible = true;
+    } else {
+        //second card
+        turnCounter++;
+        $('.counter').html('Turn counter: ' + turnCounter);
+    }
 }
