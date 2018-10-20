@@ -32,7 +32,6 @@ header {
 .game-item {
     background-color: #ffffff;
     filter: brightness(80%);
-    cursor: pointer;
     transition: all  0.3s ease-in-out;
 }
 
@@ -44,7 +43,6 @@ header {
 
 .game-item-active {
     filter: brightness(100%);
-    cursor: pointer;
 }
 
 .counter {
@@ -53,4 +51,9 @@ header {
     margin-top: 5px;
     text-transform: uppercase;
 
+}
+
+h1.win-info {
+    text-align: center;
+    font-size: 120px;
 }

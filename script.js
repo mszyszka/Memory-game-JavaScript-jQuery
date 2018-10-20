@@ -28,23 +28,83 @@ i11.addEventListener('click', function() { revealCard(11); });
 
 let oneVisible = false;
 let turnCounter = 0;
+let firsItem;
+let lock = false;
+let pairsLeft = 6;
 
 function revealCard(nr){
-    // alert(nr);
+    
+    let opacityValue = $('#i' + nr).css('opacity');
 
-    //color for background-color atribute
-    let color = items[nr];
-
-    $('#i' + nr).css('background-color', color);
-    $('#i' + nr).addClass('game-item-active');
-
-    if(oneVisible == false) 
+    if(opacityValue != 0 && lock == false)
     {
-        //first card
-        oneVisible = true;
-    } else {
-        //second card
-        turnCounter++;
-        $('.counter').html('Turn counter: ' + turnCounter);
+        lock = true;
+        //color for background-color atribute
+        let color = items[nr];
+
+        $('#i' + nr).css('background-color', color);
+        $('#i' + nr).addClass('game-item-active');
+
+        if(oneVisible == false) 
+        {
+            //first card
+            oneVisible = true;
+            firsItem = nr;
+            lock = false;
+
+        } 
+        else
+        {
+            //second card
+            turnCounter++;
+            $('.counter').html('Turn counter: ' + turnCounter);
+
+            oneVisible = false;
+            let secondItem = nr;
+
+            if(items[firsItem] == items[secondItem])
+            {
+                //hit
+                setTimeout(function() { hidePair(firsItem, secondItem) }, 750);
+            } 
+            else 
+            {
+                //mishit
+                setTimeout(function() { restorePair(firsItem, secondItem) }, 1000);
+
+            }
+        }
     }
+    
+}
+
+function hidePair(nr1, nr2) {
+    $('#i'+nr1).css('opacity', '0');
+    $('#i'+nr1).css('cursor', 'default');
+
+    $('#i'+nr2).css('opacity', '0');
+    $('#i'+nr2).css('cursor', 'default');
+    lock = false;
+
+    pairsLeft--;
+
+    if(pairsLeft == 0){
+        $('.container').css('display', 'block');
+
+        $('.container').html('<h1 class="win-info">You did it in </br> ' + turnCounter + '</br> turns</h1>');
+
+        $('.counter').css('display', 'none');
+
+    }
+
+}
+
+function restorePair(firsItem, secondItem) {
+    $('#i' + firsItem).css('background-color', '#ffffff');
+    $('#i' + firsItem).removeClass('game-item-active');
+
+    $('#i' + secondItem).css('background-color', '#ffffff');
+    $('#i' + secondItem).removeClass('game-item-active');
+    lock = false;
+
 }
