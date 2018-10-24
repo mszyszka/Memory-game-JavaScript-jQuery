@@ -1,5 +1,25 @@
 const colors = ["#d60d0d", "#0d76d6", "#11b456", "#42df1f", "#df1f9d", "#e3da0e", "#d60d0d", "#0d76d6", "#11b456", "#42df1f", "#df1f9d", "#e3da0e"];
 
+// const colorsRandomly = [];
+// let actualNumber;
+
+// function addColorsRandomly() {
+
+//     for(let i = 0; i < 12; i++){
+//         let randomNumber = Math.floor((Math.random()*11)+1);
+//         actualNumber = randomNumber;
+
+//         if(actualNumber != randomNumber){
+//             colorsRandomly.push(colors[randomNumber]);
+//         } else {
+//             randomNumber = Math.floor((Math.random()*11)+1);
+//             actualNumber = randomNumber;
+//         }
+//     }
+// }
+
+// addColorsRandomly();
+
 // const i0 = document.getElementById('i0');
 // const i1 = document.getElementById('i1');
 // const i2 = document.getElementById('i2');
@@ -51,7 +71,7 @@ function revealCard(nr){
     {
         lock = true;
         //color for background-color atribute
-        let color = colors[nr];
+        let color = colorsRandomly[nr];
 
         $('#i' + nr).css('background-color', color);
         $('#i' + nr).addClass('game-item-active');
@@ -73,7 +93,7 @@ function revealCard(nr){
             oneVisible = false;
             let secondColor = nr;
 
-            if(colors[firsColor] == colors[secondColor])
+            if(colorsRandomly[firsColor] == colorsRandomly[secondColor])
             {
                 //hit
                 setTimeout(function() { hidePair(firsColor, secondColor) }, 750);
@@ -121,3 +141,4 @@ function restorePair(firsColor, secondColor) {
     lock = false;
 
 }
+
