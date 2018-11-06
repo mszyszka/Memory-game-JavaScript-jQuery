@@ -11,28 +11,30 @@ body {
 
 header {
     letter-spacing: 1px;
-    margin-top: 50px;
     text-align: center;
     text-transform: uppercase;
-    padding: 0px 0 20px 0;
+    padding: 50px 20px 20px 20px;
+
 }
 
 .container {
     padding: 20px;
-    height: 455px;
     display: grid;
-    grid-gap: 20px 20px;
-    grid-template-columns: 125px 125px 125px 125px;
-    grid-template-rows: 125px 125px 125px;
+    grid-gap: 10px 10px;
+    grid-template-columns: repeat(4, 1fr);
     align-content: center;
     justify-content: center;
-    
+    max-width: 800px;
+    margin: auto;
 }
 
 .game-item {
     background-color: #ffffff;
     filter: brightness(80%);
     transition: all  0.3s ease-in-out;
+    width: 100%;
+    /* I'm setting Aspect Ratio 1 : 1, setting padding-top to 100% */
+    padding-top: 100%;
 }
 
 .game-item:hover {
@@ -79,4 +81,16 @@ h1.win-info {
     color: #000000;
     border: 2px solid #ffffff;
     background: #ffffff;
+}
+
+@media(min-width: 450px){
+    .container {
+        grid-gap: 15px 15px;
+    }
+}
+
+@media(min-width: 650px){
+    .container {
+        grid-gap: 20px 20pxds;
+    }
 }
